@@ -1,0 +1,11 @@
+---
+dependencies:
+  - role: freebsd
+    freebsd_service: consul
+    freebsd_packages:
+      - consul
+    freebsd_rc:
+      consul_syslog_output_enable: "YES"
+      consul_user: consul
+      consul_group: consul
+      consul_enable: "YES"

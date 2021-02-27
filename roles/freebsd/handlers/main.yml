@@ -1,0 +1,12 @@
+---
+# freebsd/handlers/main.yml
+
+- name: restart sysctl
+  service:
+    name: sysctl
+    state: restarted
+
+- name: restart {{ freebsd_service }}
+  service:
+    name: "{{ freebsd_service }}"
+    state: restarted

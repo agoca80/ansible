@@ -1,0 +1,21 @@
+---
+# plays/mountain.yml
+
+- name: mountain
+  hosts: mountain
+  roles:
+    - name: network
+
+    - name: freebsd
+      freebsd_service: powerd
+      freebsd_rc:
+        powerd_enable: "YES"
+        powerd_flags: "-a hadp -b hadp -n hadp"
+
+    - name: jailer
+
+    - name: nfs
+
+    - name: rsync
+
+    - name: zfs

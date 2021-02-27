@@ -1,0 +1,42 @@
+---
+# roles/gitlab/tasks/postgresql.yml
+
+- name: postgres initdb
+  command: service postgresql initdb
+  args:
+    creates: /var/db/postgres/data12
+  notify: restart postgresql
+
+- name: postgres config
+  template:
+    src: postgresql.conf
+    dest: /var/db/postgres/data12/postgresql.conf
+    owner: postgres
+    group: postgres
+    mode: "0600"
+  notify: restart postgresql
+
+- name: postgres started
+  service:
+    name: postgresql
+    state: started
+
+- name: postgres user
+  postgresql_user:
+    db: template1
+    name: git
+    role_attr_flags: CREATEDB,SUPERUSER
+
+- name: postgres database
+  postgresql_db:
+    name: gitlabhq_production
+    owner: git
+    template: template1
+
+- name: postgres extensions
+  postgresql_ext:
+    db: gitlabhq_production
+    name: "{{ item }}"
+  loop:
+    - pg_trgm
+    - btree_gist

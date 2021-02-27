@@ -1,0 +1,46 @@
+---
+# roles/gitlab/tasks/git.yml
+
+- name: gitlab add git user to redis group
+  user:
+    name: git
+    groups: redis
+    append: yes
+
+- name: gitlab git user
+  user:
+    create_home: yes
+    home: /usr/home/git
+    name: git
+
+- name: gitlab git user gitconfig
+  become: yes
+  become_user: git
+  git_config:
+    name: "{{ item.name }}"
+    scope: global
+    value: "{{ item.value }}"
+  loop:
+    - { name: "core.autocrlf"      , value: "input" }
+    - { name: "gc.auto"            , value: "0" }
+    - { name: "repack.writeBitmaps", value: "true" }
+  loop_control:
+    label: "{{ item.name }}"
+
+- name: gitlab git user .ssh directory
+  become: yes
+  become_user: git
+  file:
+    path: /home/git/.ssh
+    state: directory
+
+- name: gitlab directories
+  become: yes
+  become_user: git
+  file:
+    name: "{{ item.name }}"
+    mode: "{{ item.mode }}"
+    state: directory
+  loop:
+    - { mode: "0755", name: "/usr/local/git/.ssh" }
+    - { mode: "2770", name: "/usr/local/git/repositories" }

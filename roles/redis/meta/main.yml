@@ -1,0 +1,10 @@
+---
+# redis/meta/main.yml
+
+dependencies:
+  - role: freebsd
+    freebsd_rc:
+      redis_enable: "YES"
+    freebsd_service: redis
+    freebsd_packages:
+      - redis

@@ -1,0 +1,14 @@
+---
+# vault/meta/main.yml
+
+dependencies:  
+  - role: consul
+  - role: freebsd
+    freebsd_service: vault
+    freebsd_packages:
+      - vault
+    freebsd_rc:
+      vault_syslog_output_enable: "YES"
+      vault_user: vault
+      vault_group: vault
+      vault_enable: "YES"

@@ -1,0 +1,36 @@
+# freebsd_network:
+#   autobridge_bridge0: tap?
+#   autobridge_interfaces: bridge0
+#   cloned_interfaces: bridge0
+#   ifconfig_bridge0: addm em0
+
+# freebsd_sysctls:
+#   kern.vt.enable_bell: 0
+
+jailer_base_snapshot: 1
+jailer_dataset: zdata/jails
+jailer_distsite: ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/12.2-RELEASE
+jailer_mountpoint: /jails
+
+network_config:
+  ifconfig_em0: "inet 192.168.1.4 netmask 255.255.255.0"
+  ifconfig_em0_alias0: "inet 192.168.1.10-19"
+  defaultrouter: "192.168.1.1"
+
+nfs_exports:
+  - path: /backups
+    options: -network  192.168.1.0/24
+
+zfs_pools:
+  - device: /dev/ada0
+    mountpoint: /data
+    name: zdata
+  # - device: /dev/da0
+  #   mount_point: /atic
+  #   name: zatic
+
+zfs_datasets:
+  - dataset: zdata/backups
+    state: present
+    extra_zfs_properties:
+      mountpoint: /backups

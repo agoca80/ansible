@@ -1,0 +1,13 @@
+---
+
+dependencies:
+  - role: freebsd
+    freebsd_service: jenkins
+    freebsd_packages:
+      - bash
+      - docker
+      - helm
+      - jenkins
+      - git-lite
+      - kubectl
+      - py37-ansible

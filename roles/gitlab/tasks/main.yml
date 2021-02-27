@@ -1,0 +1,50 @@
+---
+# roles/gitlab/tasks/main.yml
+
+- include_tasks: "postgresql.yml"
+
+- include_tasks: "nginx.yml"
+
+- include_tasks: "git.yml"
+
+- name: gitlab config
+  template:
+    src: "{{ item.file }}"
+    dest: /usr/local/www/gitlab-ce/config/
+    owner: git
+    group: www
+    mode: "{{ item.mode }}"
+  notify: restart gitlab
+  loop:
+    - { mode: "0644", file: database.yml }
+    - { mode: "0644", file: gitlab.yml }
+    - { mode: "0600", file: secrets.yml }
+    - { mode: "0644", file: puma.rb }
+
+- name: gitlab permissions for gitlab-shell
+  file:
+    name: /usr/local/share/gitlab-shell
+    group: git
+    mode: "775"
+
+- name: gitlab initialization
+  become: yes
+  become_user: git
+  shell: force=yes DISABLE_DATABASE_ENVIRONMENT_CHECK=1 rake gitlab:setup RAILS_ENV=production
+  args:
+    chdir: "{{ gitlab_dir }}"
+
+- name: gitlab check
+  become: yes
+  become_user: git
+  command: chdir={{ gitlab_dir }} rake gitlab:env:info RAILS_ENV=production
+
+- name: gitlab yarn
+  become: yes
+  become_user: git
+  command: chdir={{ gitlab_dir }} yarn install --production --pure-lockfile
+
+- name: gitlab assets compile
+  become: yes
+  become_user: git
+  command: chdir={{ gitlab_dir }} rake gitlab:assets:compile RAILS_ENV=production NODE_ENV=production

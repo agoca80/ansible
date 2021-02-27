@@ -1,0 +1,11 @@
+development
+
+mountain ansible_host=192.168.1.4 allow_world_readable_tmpfiles=true
+
+gitlab   ansible_host=192.168.1.10
+
+vault1   ansible_host=192.168.1.11 consul_server=true
+vault2   ansible_host=192.168.1.12 consul_server=true
+vault3   ansible_host=192.168.1.13 consul_server=true
+
+smee     ansible_host=192.168.1.14

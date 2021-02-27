@@ -1,0 +1,18 @@
+---
+- name: nfs exports
+  loop: "{{ nfs_exports }}"
+  lineinfile:
+    create: true
+    regexp: "^{{ item.path }} "
+    path: "/etc/exports"
+    line: "{{ item.path }} {{ item.options }}"
+  notify: nfs restart mountd
+
+- name: nfs services
+  service:
+    name: "{{ item }}"
+    state: restarted
+  loop:
+    - rpcbind
+    - nfsd
+    - mountd

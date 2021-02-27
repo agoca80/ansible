@@ -1,0 +1,11 @@
+---
+# network/tasks/main.yml
+
+- name: network config
+  with_dict: "{{ network_config }}"
+  lineinfile:
+    backup: yes
+    regexp: "^{{ item.key }}="
+    path:   "/etc/rc.conf"
+    line:   '{{ item.key }}="{{ item.value }}"'
+  notify: restart network

@@ -1,0 +1,10 @@
+---
+# roles/smee/tasks/main.yml
+
+- name: smee client
+  npm:
+    name: smee-client
+    global: yes
+
+- name: smee process
+  shell: screen -d -m smee -u https://smee.io/{{ smee_channel }} -t http://{{ jenkins_server }}:8080/github-webhook/

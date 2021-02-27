@@ -1,0 +1,10 @@
+---
+# roles/bhyve/meta/main.yml
+
+dependencies:
+  - role: freebsd
+    freebsd_packages:
+      - bhyve-firmware
+      - tmux
+    freebsd_sysctls:
+      net.link.tap.up_on_open: 1

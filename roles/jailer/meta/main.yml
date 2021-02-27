@@ -1,0 +1,21 @@
+---
+# roles/jailer/meta/main.yml
+
+dependencies:
+  - role: zfs
+    zfs_datasets:
+      - dataset: "{{ jailer_dataset }}"
+        state: present
+        extra_zfs_properties:
+          mountpoint: "{{ jailer_mountpoint }}"
+      - dataset: "{{ jailer_dataset }}/base"
+        state: present
+        extra_zfs_properties: { }
+  - role: freebsd
+    freebsd_rc:
+      jail_enable: "YES"
+    freebsd_service: jail
+    freebsd_sysctls:
+      security.jail.sysvipc_allowed: 1
+    freebsd_packages:
+      - gtar

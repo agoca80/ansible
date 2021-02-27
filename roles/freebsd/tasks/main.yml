@@ -1,0 +1,34 @@
+---
+# freebsd/tasks/main.yml
+
+- name: freebsd service
+  debug:
+    var: freebsd_service
+
+- name: freebsd sysctl
+  with_dict: "{{ freebsd_sysctls }}"
+  sysctl:
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+    sysctl_set: yes
+  notify: restart sysctl
+
+- name: freebsd packages
+  loop: "{{ freebsd_packages }}"
+  package:
+    name: "{{ item }}"
+    state: present
+
+- name: freebsd rc entries
+  with_dict: "{{ freebsd_rc }}"
+  lineinfile:
+    regexp: "^{{ item.key }}="
+    path: "/etc/rc.conf"
+    line: "{{ item.key }}=\"{{ item.value }}\""
+  notify: restart {{ freebsd_service }}
+
+- name: freebsd service
+  service:
+    name: "{{ freebsd_service }}"
+    state: started
+  when: start_service == "true"

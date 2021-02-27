@@ -1,0 +1,23 @@
+---
+# vault/tasks/main.yml
+
+- name: vault configuration
+  notify: restart vault
+  template:
+    src: vault.hcl.j2
+    dest: /usr/local/etc/vault.hcl
+    owner: vault
+    group: vault
+    mode: "0600"
+
+- name: vault certificate
+  notify: restart vault
+  template:
+    src: "{{ secrets }}/certificate.{{ item }}"
+    dest: "/usr/local/etc/vault.{{ item }}"
+    owner: vault
+    group: vault
+    mode: "0400"
+  loop:
+    - pem
+    - key

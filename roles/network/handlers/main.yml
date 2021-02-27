@@ -1,0 +1,10 @@
+---
+# network/handlers/main.yml
+
+- name: restart network
+  service:
+    name: "{{ item }}"
+    state: restarted
+  loop:
+    - netif
+    - routing

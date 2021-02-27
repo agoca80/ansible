@@ -1,0 +1,10 @@
+---
+# redis/meta/main.yml
+
+dependencies:
+  - role: freebsd
+    freebsd_packages:
+      - rsync
+    freebsd_rc:
+      rsyncd_enable: "YES"
+    freebsd_service: rsyncd

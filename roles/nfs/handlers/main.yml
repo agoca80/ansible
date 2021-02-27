@@ -1,0 +1,7 @@
+---
+# roles/nfs/handlers/main.yml
+
+- name: nfs restart mountd
+  service:
+    name: mountd
+    state: restarted

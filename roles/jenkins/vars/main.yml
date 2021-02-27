@@ -1,0 +1,3 @@
+plugin_version: 2.5.0
+plugin_url: https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/{{ plugin_version }}/jenkins-plugin-manager-{{ plugin_version }}.jar
+plugin_jar: /usr/local/jenkins/jenkins-plugin-manager-{{ plugin_version }}.jar

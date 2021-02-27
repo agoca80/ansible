@@ -1,0 +1,11 @@
+---
+# roles/nfs/meta.yml
+dependencies:
+  - role: freebsd
+    freebsd_rc:
+      nfs_server_enable: "YES"
+      rpcbind_enable: "YES"
+      mountd_enable: "YES"
+      nfs_server_flags: "-u -t -n 4"
+      mountd_flags: "-r"
+    freebsd_service: nfsd

@@ -1,0 +1,4 @@
+plugins:
+  - artifactId: ansible
+    source:
+      version: latest
