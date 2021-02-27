@@ -25,11 +25,11 @@
 #     - jenkins-support
 
 # https://github.com/jenkinsci/plugin-installation-manager-tool
-- name: jenkins plugin manager
-  get_url:
-    url: "{{ jenkins_manager_plugin_url }}"
-    dest: /root/
-    mode: "0444"
+# - name: jenkins plugin manager
+#   get_url:
+#     url: "{{ jenkins_manager_plugin_url }}"
+#     dest: /root/
+#     mode: "0444"
 
-- name: jenkins plugins install
-  command: java -jar /root/  /usr/local/share/jenkins/jenkins.war
+# - name: jenkins plugins install
+#   command: java -jar /root/  /usr/local/share/jenkins/jenkins.war

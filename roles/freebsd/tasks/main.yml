@@ -31,4 +31,4 @@
   service:
     name: "{{ freebsd_service }}"
     state: started
-  when: start_service == "true"
+  when: start_service
