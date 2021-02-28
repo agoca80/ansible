@@ -12,24 +12,19 @@
     - { path: /dev/fd, src: fdesc, fstype: fdescfs, opts: rw }
     - { path: /proc,   src: proc,  fstype: procfs,  opts: rw }
 
-# From jenkins/jenkins docker image
-# - name: jenkins plugins
-#   copy:
-#     src: "{{ item }}"
-#     dest: /usr/local/bin/
-#     mode: "0755"
-#     owner: root
-#     group: wheel
-#   loop:
-#     - install-plugins.sh
-#     - jenkins-support
-
 # https://github.com/jenkinsci/plugin-installation-manager-tool
-# - name: jenkins plugin manager
-#   get_url:
-#     url: "{{ jenkins_manager_plugin_url }}"
-#     dest: /root/
-#     mode: "0444"
+- name: jenkins plugin manager
+  get_url:
+    url: "{{ plugin_manager_url }}"
+    dest: "{{ plugin_manager_path }}"
 
-# - name: jenkins plugins install
-#   command: java -jar /root/  /usr/local/share/jenkins/jenkins.war
+- name: jenkins plugin list file
+  copy:
+    src: plugins.yml
+    dest: "{{ plugins_file }}"
+
+- name: jenkins plugins install
+  become: yes
+  become_user: jenkins
+  command: java -jar {{ plugin_manager_path }} -w {{ war_path }} -f {{ plugins_file }} -d {{ plugins_dir }}
+  notify: restart jenkins

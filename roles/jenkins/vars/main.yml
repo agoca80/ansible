@@ -1,3 +1,11 @@
-plugin_version: 2.5.0
-plugin_url: https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/{{ plugin_version }}/jenkins-plugin-manager-{{ plugin_version }}.jar
-plugin_jar: /usr/local/jenkins/jenkins-plugin-manager-{{ plugin_version }}.jar
+jenkins_home: /usr/local/jenkins
+
+plugin_manager_version: 2.5.0
+plugin_manager_file: jenkins-plugin-manager-{{ plugin_manager_version }}.jar
+plugin_manager_path: "{{ jenkins_home }}/{{ plugin_manager_file }}"
+plugin_manager_url: https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/{{ plugin_manager_version }}/{{ plugin_manager_file }}
+
+plugins_dir: "{{ jenkins_home }}/plugins"
+plugins_file: "{{ jenkins_home }}/plugins.yml"
+
+war_path: /usr/local/share/jenkins/jenkins.war

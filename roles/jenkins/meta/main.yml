@@ -2,6 +2,8 @@
 
 dependencies:
   - role: freebsd
+    freebsd_rc:
+      jenkins_enable: "YES"
     freebsd_service: jenkins
     freebsd_packages:
       - bash

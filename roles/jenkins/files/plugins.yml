@@ -1,4 +1,5 @@
 plugins:
   - artifactId: ansible
-    source:
-      version: latest
+  - artifactId: blueocean
+  - artifactId: configuration-as-code
+  - artifactId: terraform
