@@ -1,10 +1,6 @@
 ---
 # freebsd/tasks/main.yml
 
-- name: freebsd service
-  debug:
-    var: freebsd_service
-
 - name: freebsd sysctl
   with_dict: "{{ freebsd_sysctls }}"
   sysctl:
@@ -31,4 +27,4 @@
   service:
     name: "{{ freebsd_service }}"
     state: started
-  when: start_service
+  when: start_service and freebsd_service is defined
