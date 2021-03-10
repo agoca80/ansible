@@ -3,3 +3,4 @@ plugins:
   - artifactId: blueocean
   - artifactId: configuration-as-code
   - artifactId: terraform
+  - artifactId: pipeline-aws

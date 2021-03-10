@@ -1,0 +1,172 @@
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - gitlabPersonalAccessToken:
+          description: "antxon@gitlab"
+          id: "ac16ea3b-15b7-4e49-bf34-b5938e94c966"
+          scope: GLOBAL
+          token: "{AQAAABAAAAAg+kUYMGJZmjybmBlsvtfVFiefIetEonq00BaoM+gztKajcgIUUm/jBqpKNrbZ34b4}"
+      - basicSSHUserPrivateKey:
+          description: "jenkins@mountain"
+          id: "56fb49f3-aad9-42e4-939f-387220e4304f"
+          privateKeySource:
+            directEntry:
+              privateKey: "{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}"
+          scope: GLOBAL
+          username: "git"
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  labelAtoms:
+  - name: "master"
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+      - id: "antxon"
+        name: "antxon"
+        properties:
+        - "myView"
+        - preferredProvider:
+            providerId: "default"
+        - "timezone"
+        - mailer:
+            emailAddress: "agoca80@gmail.com"
+        - "apiToken"
+        - favoriting:
+            autofavoriteEnabled: true
+        - "favorite"
+  slaveAgentPort: -1
+  updateCenter:
+    sites:
+    - id: "default"
+      url: "https://updates.jenkins.io/update-center.json"
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  sSHD:
+    port: -1
+unclassified:
+  bitbucketEndpointConfiguration:
+    endpoints:
+    - bitbucketCloudEndpoint:
+        enableCache: false
+        manageHooks: false
+        repositoriesCacheDuration: 0
+        teamCacheDuration: 0
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+  buildStepOperation:
+    enabled: false
+  email-ext:
+    adminRequiredForTemplateTesting: false
+    allowUnregisteredEnabled: false
+    charset: "UTF-8"
+    debugMode: false
+    defaultBody: |-
+      $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+
+      Check console output at $BUILD_URL to view the results.
+    defaultContentType: "text/plain"
+    defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
+    defaultTriggerIds:
+    - "hudson.plugins.emailext.plugins.trigger.FailureTrigger"
+    mailAccount:
+      smtpPassword: "{AQAAABAAAAAQL42FOCd5L23eF18bhI6hhvEp1hym0WNNgtNm8lV/Cgg=}"
+    maxAttachmentSize: -1
+    maxAttachmentSizeMb: -1
+    precedenceBulk: false
+    watchingEnabled: false
+  fingerprints:
+    fingerprintCleanupDisabled: false
+    storage: "file"
+  gitHubConfiguration:
+    apiRateLimitChecker: ThrottleForNormalize
+  gitHubPluginConfig:
+    hookUrl: "http://192.168.1.4:8080/github-webhook/"
+  gitLabServers:
+    servers:
+    - credentialsId: "ac16ea3b-15b7-4e49-bf34-b5938e94c966"
+      name: "default"
+      secretToken: "{AQAAABAAAAAQ5B9iKQ31Q16e2PaEOKoH86wYrhXqx/ZRQJF0Rl9gOBw=}"
+      serverUrl: "http://192.168.1.10"
+  gitSCM:
+    addGitTagAction: false
+    allowSecondFetch: false
+    createAccountBasedOnEmail: false
+    disableGitToolChooser: false
+    hideCredentials: false
+    showEntireCommitSummaryInChanges: false
+    useExistingAccountWithSameEmail: false
+  globalLibraries:
+    libraries:
+    - defaultVersion: "master"
+      implicit: true
+      name: "shared-pipeline-library"
+      retriever:
+        modernSCM:
+          scm:
+            gitlab:
+              credentialsId: "56fb49f3-aad9-42e4-939f-387220e4304f"
+              id: "32ef7fb7-5e4d-4a83-abf1-64c5749f079a"
+              serverName: "default"
+              traits:
+              - gitLabBranchDiscovery:
+                  strategyId: 1
+              - originMergeRequestDiscoveryTrait:
+                  strategyId: 1
+              - gitLabForkDiscovery:
+                  strategyId: 1
+                  trust: "gitLabTrustPermissions"
+  junitTestResultStorage:
+    storage: "file"
+  location:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+    url: "http://192.168.1.4:8080/"
+  mailer:
+    charset: "UTF-8"
+    useSsl: false
+    useTls: false
+  pollSCM:
+    pollingThreadCount: 10
+  timestamper:
+    allPipelines: false
+    elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
+    systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  mavenGlobalConfig:
+    globalSettingsProvider: "standard"
+    settingsProvider: "standard"
