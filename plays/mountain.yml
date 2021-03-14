@@ -31,3 +31,10 @@
     - name: rsync
 
     - name: zfs
+
+  tasks:
+    - name: Disable root wait for USB
+      lineinfile:
+        regexp: "^hw.usb.no_boot_wait="
+        path: /boot/loader.conf
+        line: "hw.usb.no_boot_wait=1"
