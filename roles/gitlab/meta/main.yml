@@ -10,6 +10,7 @@ dependencies:
     freebsd_rc:
       nginx_enable: "YES"
     freebsd_service: nginx
+    start_service: false
 
   - role: freebsd
     freebsd_packages:
