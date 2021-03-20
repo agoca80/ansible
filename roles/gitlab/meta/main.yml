@@ -18,6 +18,7 @@ dependencies:
     freebsd_rc:
       postgresql_enable: "YES"
     freebsd_service: postgresql
+    start_service: false
 
   - role: freebsd
     start_service: false
