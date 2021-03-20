@@ -36,6 +36,7 @@
 
 - name: base admin user creation
   command: chroot {{ base_jail }} pw user add -mn {{ admin }} -G wheel
+  ignore_errors: true
 
 - name: base authorized_keys
   copy:
