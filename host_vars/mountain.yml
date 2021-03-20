@@ -7,7 +7,7 @@
 # freebsd_sysctls:
 #   kern.vt.enable_bell: 0
 
-jailer_base_snapshot: 1
+jailer_base_snapshot: 2
 jailer_dataset: zdata/jails
 jailer_distsite: ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/12.2-RELEASE
 jailer_mountpoint: /jails
