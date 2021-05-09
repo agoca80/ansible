@@ -8,13 +8,13 @@
 
     # https://wiki.freebsd.org/riscv
     # RISC-V emulator
-    - name: freebsd
-      freebsd_packages:
-        - opensbi
-        - qemu        
-        - riscv-isa-sim
-        - screen
-        - u-boot-qemu-riscv64
+    # - name: freebsd
+    #   freebsd_packages:
+    #     - opensbi
+    #     - qemu        
+    #     - riscv-isa-sim
+    #     - screen
+    #     - u-boot-qemu-riscv64
 
     - name: freebsd
       freebsd_service: powerd
@@ -23,8 +23,6 @@
         powerd_flags: "-a hadp -b hadp -n hadp"
 
     - name: jailer
-
-    - name: jenkins
 
     - name: nfs
 
