@@ -10,7 +10,7 @@ for OPTION in $*; do
 done
 
 set -x
-ansible-playbook -vvv \
+ansible-playbook \
     -e host=$MACHINE \
     -e role=$ROLE \
     -e secrets=$HOME/secrets \
