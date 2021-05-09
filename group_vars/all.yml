@@ -1,7 +1,9 @@
 ---
 # group_vars/all
 
-admin: antxon
+admin: admin
+
+ansible_user: ansible
 
 ansible_python_interpreter: /usr/local/bin/python3
 
@@ -10,6 +12,6 @@ consul_cluster:
   - 192.168.1.12
   - 192.168.1.13
 
-jenkins_server: 192.168.1.4
+jenkins_server: 192.168.1.2
 
 smee_channel: W51od4mUxbLV7Asa
