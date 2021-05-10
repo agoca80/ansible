@@ -4,8 +4,8 @@ pipeline {
         stage('converge') { 
             steps {
                 sh('
-                    ls
-                    ansible-playbook plays/mountain.yml
+                    ansible-playbook -l lenovo   plays/lenovo.yml
+                    ansible-playbook -l mountain plays/mountain.yml
                 ')
             }
         }

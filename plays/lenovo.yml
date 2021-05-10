@@ -1,0 +1,19 @@
+---
+# plays/mountain.yml
+
+- name: lenovo
+  hosts: lenovo
+  roles: [ ]
+
+  tasks:
+    - name: Share AWS credentials
+      cron:
+        name: "{{ item.name }}"
+        minute: "*"
+        user: antxon
+        job: "{{ item.job }}"
+      loop:
+        - name: antxon@mountain
+          job: rsynz -avz /home/antxon/.aws antxon@192.168.1.2:/home/antxon/
+        - name: jenkins@mountain
+          job: rsync -avz /home/antxon/.aws jenkins@192.168.1.2:/usr/local/jenkins/

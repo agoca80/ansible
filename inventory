@@ -1,6 +1,7 @@
 development
 
-mountain ansible_host=192.168.1.2 allow_world_readable_tmpfiles=true
+lenovo   ansible_host=192.168.1.38 allow_world_readable_tmpfiles=true
+mountain ansible_host=192.168.1.2  allow_world_readable_tmpfiles=true
 
 gitlab   ansible_host=192.168.1.10
 

@@ -6,6 +6,7 @@ dependencies:
       jenkins_enable: "YES"
     freebsd_service: jenkins
     freebsd_packages:
+      - awscli
       - bash
       - docker
       - helm
